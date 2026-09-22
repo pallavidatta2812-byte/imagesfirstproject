@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Image Canvas</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <div class="toolbar-brand">
+      <span class="toolbar-icon">🖼️</span>
+      <h1>Image Canvas</h1>
+    </div>
+
+    <div class="toolbar-actions">
+      <button id="add-btn" class="btn btn-primary">
+        <span>+</span> Add Images
+      </button>
+      <input id="file-input" type="file" accept="image/*" multiple hidden />
+
+      <div class="btn-group">
+        <button id="grid-btn" class="btn">Arrange Grid</button>
+        <button id="scatter-btn" class="btn">Scatter</button>
+      </div>
+
+      <button id="clear-btn" class="btn btn-ghost">Clear</button>
+
+      <span class="count-badge"><span id="count">0</span> images</span>
+    </div>
+  </header>
+
+  <main id="canvas" class="canvas">
+    <div id="empty-state" class="empty-state">
+      <div class="empty-icon">🎨</div>
+      <p>Drag &amp; drop images here</p>
+      <p class="empty-sub">or click "Add Images" to get started</p>
+    </div>
+  </main>
+
+  <script src="vendor/gsap/gsap.min.js"></script>
+  <script src="vendor/gsap/Draggable.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
