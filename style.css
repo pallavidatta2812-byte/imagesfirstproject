@@ -1,0 +1,233 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f4f1ea;
+  color: #2b2b2b;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #e4e0d6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  z-index: 10000;
+}
+
+.toolbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toolbar-icon {
+  font-size: 22px;
+}
+
+.toolbar h1 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-group {
+  display: flex;
+  gap: 6px;
+  padding: 4px;
+  background: #f4f1ea;
+  border-radius: 10px;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid #ddd6c4;
+  background: #fff;
+  color: #2b2b2b;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, box-shadow 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn:hover {
+  background: #faf8f2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary {
+  background: #2b2b2b;
+  color: #fff;
+  border-color: #2b2b2b;
+}
+
+.btn-primary:hover {
+  background: #111;
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: #a04040;
+}
+
+.btn-ghost:hover {
+  background: #fbeaea;
+}
+
+.count-badge {
+  font-size: 13px;
+  color: #6b6b6b;
+  padding: 6px 10px;
+  background: #f4f1ea;
+  border-radius: 999px;
+}
+
+.canvas {
+  position: relative;
+  flex: 1;
+  margin: 18px 24px 24px;
+  border-radius: 16px;
+  border: 2px dashed #d9d2bf;
+  background:
+    radial-gradient(circle at 1px 1px, #e6e0cf 1px, transparent 0) 0 0/24px 24px,
+    #faf8f2;
+  overflow: hidden;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.canvas.drag-over {
+  border-color: #a04040;
+  background-color: #fbeeea;
+}
+
+.empty-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #9a9280;
+  pointer-events: none;
+  text-align: center;
+  gap: 4px;
+}
+
+.empty-icon {
+  font-size: 40px;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.empty-sub {
+  font-size: 13px !important;
+  color: #b3ab98;
+}
+
+.canvas-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  background: #fff;
+  padding: 6px 6px 6px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  touch-action: none;
+  will-change: transform;
+}
+
+.canvas-item:active {
+  cursor: grabbing;
+}
+
+.canvas-item.dragging {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28), 0 4px 10px rgba(0, 0, 0, 0.14);
+}
+
+.canvas-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.remove-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: #2b2b2b;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.12s ease, transform 0.12s ease, background 0.12s ease;
+}
+
+.canvas-item:hover .remove-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.remove-btn:hover {
+  background: #a04040;
+}
+
+@media (max-width: 640px) {
+  .toolbar {
+    padding: 12px 16px;
+  }
+  .canvas {
+    margin: 12px;
+  }
+}
